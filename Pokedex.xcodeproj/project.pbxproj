@@ -11,6 +11,13 @@
 		1F3543E42878A8F200913F9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543E32878A8F200913F9A /* ContentView.swift */; };
 		1F3543E62878A8F600913F9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3543E52878A8F600913F9A /* Assets.xcassets */; };
 		1F3543E92878A8F600913F9A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3543E82878A8F600913F9A /* Preview Assets.xcassets */; };
+		1F3543F02878ABEE00913F9A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543EF2878ABEE00913F9A /* LoginView.swift */; };
+		1F3543F22878ABF900913F9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543F12878ABF900913F9A /* HomeView.swift */; };
+		1F3543F42878AC0900913F9A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543F32878AC0900913F9A /* DetailView.swift */; };
+		1F3543F72878CB6500913F9A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1F3543F62878CB6500913F9A /* Fonts */; };
+		1FC56FC5287C85690070ED3F /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC4287C85680070ED3F /* SecurityView.swift */; };
+		1FC56FC9287CC7F00070ED3F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC8287CC7F00070ED3F /* TabBarView.swift */; };
+		1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,14 @@
 		1F3543E32878A8F200913F9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F3543E52878A8F600913F9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3543E82878A8F600913F9A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1F3543EF2878ABEE00913F9A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1F3543F12878ABF900913F9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1F3543F32878AC0900913F9A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1F3543F62878CB6500913F9A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		1FC56FB3287C596B0070ED3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1FC56FC4287C85680070ED3F /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
+		1FC56FC8287CC7F00070ED3F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				1F3543E12878A8F200913F9A /* PokedexApp.swift */,
+				1FC56FB4287C673B0070ED3F /* Assistents */,
+				1FC56FBB287C68070070ED3F /* Core */,
+				1FC56FB6287C67680070ED3F /* Models */,
+				1FC56FB5287C675A0070ED3F /* Features */,
+				1F3543F62878CB6500913F9A /* Fonts */,
+				1FC56FB3287C596B0070ED3F /* Info.plist */,
 				1F3543E32878A8F200913F9A /* ContentView.swift */,
+				1F3543F32878AC0900913F9A /* DetailView.swift */,
 				1F3543E52878A8F600913F9A /* Assets.xcassets */,
 				1F3543E72878A8F600913F9A /* Preview Content */,
 			);
@@ -65,6 +87,159 @@
 				1F3543E82878A8F600913F9A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1FC56FB4287C673B0070ED3F /* Assistents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assistents;
+			sourceTree = "<group>";
+		};
+		1FC56FB5287C675A0070ED3F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FBA287C67DD0070ED3F /* Detail */,
+				1FC56FB9287C67D40070ED3F /* Home */,
+				1FC56FB8287C67BA0070ED3F /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1FC56FB6287C67680070ED3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1FC56FB7287C67930070ED3F /* PagesViews */ = {
+			isa = PBXGroup;
+			children = (
+				1F3543EF2878ABEE00913F9A /* LoginView.swift */,
+			);
+			path = PagesViews;
+			sourceTree = "<group>";
+		};
+		1FC56FB8287C67BA0070ED3F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FBF287C688A0070ED3F /* Presentation */,
+				1FC56FC0287C689C0070ED3F /* ViewModels */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1FC56FB9287C67D40070ED3F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FC1287C68E90070ED3F /* Presentation */,
+				1FC56FC2287C69110070ED3F /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1FC56FBA287C67DD0070ED3F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FCD287CC9510070ED3F /* ViewModels */,
+				1FC56FCC287CC9450070ED3F /* Presentation */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		1FC56FBB287C68070070ED3F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FBE287C684C0070ED3F /* Widgets */,
+				1FC56FBD287C68410070ED3F /* Utils */,
+				1FC56FBC287C68350070ED3F /* Styles */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1FC56FBC287C68350070ED3F /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		1FC56FBD287C68410070ED3F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FC4287C85680070ED3F /* SecurityView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1FC56FBE287C684C0070ED3F /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FC8287CC7F00070ED3F /* TabBarView.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		1FC56FBF287C688A0070ED3F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FB7287C67930070ED3F /* PagesViews */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1FC56FC0287C689C0070ED3F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1FC56FC1287C68E90070ED3F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FC3287C69200070ED3F /* PagesViews */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1FC56FC2287C69110070ED3F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1FC56FC3287C69200070ED3F /* PagesViews */ = {
+			isa = PBXGroup;
+			children = (
+				1F3543F12878ABF900913F9A /* HomeView.swift */,
+				1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */,
+			);
+			path = PagesViews;
+			sourceTree = "<group>";
+		};
+		1FC56FCC287CC9450070ED3F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1FC56FCE287CC9630070ED3F /* PagesViews */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1FC56FCD287CC9510070ED3F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1FC56FCE287CC9630070ED3F /* PagesViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PagesViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3543F72878CB6500913F9A /* Fonts in Resources */,
 				1F3543E92878A8F600913F9A /* Preview Assets.xcassets in Resources */,
 				1F3543E62878A8F600913F9A /* Assets.xcassets in Resources */,
 			);
@@ -137,7 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3543F02878ABEE00913F9A /* LoginView.swift in Sources */,
+				1F3543F22878ABF900913F9A /* HomeView.swift in Sources */,
+				1FC56FC9287CC7F00070ED3F /* TabBarView.swift in Sources */,
+				1FC56FC5287C85690070ED3F /* SecurityView.swift in Sources */,
 				1F3543E42878A8F200913F9A /* ContentView.swift in Sources */,
+				1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */,
+				1F3543F42878AC0900913F9A /* DetailView.swift in Sources */,
 				1F3543E22878A8F200913F9A /* PokedexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +452,7 @@
 				DEVELOPMENT_TEAM = F8JL7QVA27;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +482,7 @@
 				DEVELOPMENT_TEAM = F8JL7QVA27;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
