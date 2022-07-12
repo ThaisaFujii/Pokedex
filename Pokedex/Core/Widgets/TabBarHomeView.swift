@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabBarView: View {
+struct TabBarHomeView: View {
     var body: some View {
         HStack {
             Text("Pokedex")
@@ -39,8 +39,8 @@ struct TabBarView: View {
     }
 }
 
-struct TabBarView_Previews: PreviewProvider {
+struct TabBarHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarHomeView()
     }
 }
