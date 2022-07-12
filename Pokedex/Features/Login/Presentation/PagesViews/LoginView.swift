@@ -33,34 +33,52 @@
  
  */
 
+// fazer gradiente no bottom
+
 import SwiftUI
 
 struct LoginView: View {
-    @State var phoneNumber:String = ""
-    @State var password:String = ""
+    @State var phoneNumber: String = ""
+    @State var password: String = ""
     
     var body: some View {
-        ZStack {
-            VStack {
-                Text("Welcome to pokedex")
-                Text("Enter your login information")
-                HStack(alignment: .bottom, spacing: 16) {
-                    TextField("(xx) xxxx-xxxx", text: $phoneNumber)
-                    TextField("Password", text: $phoneNumber)
-                }
-              //  .padding(.horizontal, 16)
-                .background(.white)
-                Button {
-                    // action
-                }label: {
-                    Text("Enter")
-                }
-                .frame(width: 140, height: 36)
-                .background(Color(.green))
-                .cornerRadius(78)
+        VStack {
+            Spacer()
+            Text("Welcome to pokedex")
+                .font(Font.custom("Roboto-Medium", size: 24))
+                .multilineTextAlignment(.center)
+            Text("Enter your login information")
+                .font(Font.custom("Roboto-Medium", size: 12))
+                .multilineTextAlignment(.center)
+            HStack(spacing: 12) {
+                TextField("(xx) xxxx-xxxx", text: $phoneNumber)
+                    .font(Font.custom("Roboto-Medium", size: 12))
+                    .foregroundColor(.black).opacity(0.5)
+                    .padding(12)
+                    .background(Color.white)
+                    .cornerRadius(12)
+
+                TextField("Password", text: $password)
+                    .font(Font.custom("Roboto-Medium", size: 12))
+                    .foregroundColor(.black).opacity(0.5)
+                    .padding(12)
+                    .background(Color.white)
+                    .cornerRadius(12)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(32)
+
+            Button {
+                // action
+            }label: {
+                Text("Enter")
+                    .font(Font.custom("Roboto-Medium", size: 12))
+                    .foregroundColor(.black)
+            }
+            .frame(width: 140, height: 36)
+            .background(Color(.green))
+            .cornerRadius(78)
         }
+        .foregroundColor(.white)
         .background(
             Image("background")
                 .resizable()

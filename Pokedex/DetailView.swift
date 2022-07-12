@@ -8,7 +8,7 @@
 /*
  
  
-------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------
  Call api and load pokemon details
  Clicking on favorite icon set/unset favorite to this pokemon.
  All the project needs to be translated to portuguese and english
@@ -16,8 +16,10 @@
 import SwiftUI
 
 struct DetailView: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("ditto")
+        
     }
 }
 
