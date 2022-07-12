@@ -24,7 +24,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
         VStack(spacing: 0) {
-            TabBarView()
+            TabBarHomeView()
             ScrollView {
                 VStack(alignment: .leading) {
                     // foreach list
