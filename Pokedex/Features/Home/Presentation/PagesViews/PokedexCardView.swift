@@ -16,6 +16,7 @@ struct PokedexCardView: View {
             HStack {
                 NavigationLink(destination: DetailView(), label:{
                     Text("Pokemon name")
+                        .font(Font.custom("Roboto-Bold", size: 12))
                         .foregroundColor(.white)
                         .padding(28)
                         .frame(width: 270, height: 85)
@@ -32,9 +33,6 @@ struct PokedexCardView: View {
                                     .resizable()
                                     .aspectRatio(1.0, contentMode: .fit)
                                     .frame(width: squareSide, height: squareSide)
-                                    .onTapGesture {
-                                        //   isDetailViewOn = true
-                                    }
                             }
                                 .padding(.trailing, 230)
                         )

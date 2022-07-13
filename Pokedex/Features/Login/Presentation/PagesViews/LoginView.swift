@@ -40,6 +40,9 @@ import SwiftUI
 struct LoginView: View {
     @State var phoneNumber: String = ""
     @State var password: String = ""
+    @State var login:String = "" //encapsular
+    @State var showingAlert = false
+    @State var verified = false
     
     var body: some View {
         VStack {
@@ -52,12 +55,13 @@ struct LoginView: View {
                 .multilineTextAlignment(.center)
             HStack(spacing: 12) {
                 TextField("(xx) xxxx-xxxx", text: $phoneNumber)
+                    .keyboardType(.decimalPad)
                     .font(Font.custom("Roboto-Medium", size: 12))
                     .foregroundColor(.black).opacity(0.5)
                     .padding(12)
                     .background(Color.white)
                     .cornerRadius(12)
-
+                
                 TextField("Password", text: $password)
                     .font(Font.custom("Roboto-Medium", size: 12))
                     .foregroundColor(.black).opacity(0.5)
@@ -66,27 +70,48 @@ struct LoginView: View {
                     .cornerRadius(12)
             }
             .padding(32)
-
-            Button {
-                // action
-            }label: {
+            
+            NavigationLink(destination: HomeView(), isActive: $verified){} //criar navigation vazio
+            Button(action: {
+                isCredentialValid()
+            }, label: {
                 Text("Enter")
                     .font(Font.custom("Roboto-Medium", size: 12))
                     .foregroundColor(.black)
+            })
+            .alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("As informações não são válidas."),
+                    message: Text("Por favor colocar o login e a senha")
+                )
             }
             .frame(width: 140, height: 36)
             .background(Color(.green))
             .cornerRadius(78)
+            .padding(.bottom, 46)
+            .padding(.top, 16)
         }
         .foregroundColor(.white)
         .background(
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            // colocAR BLUR gradiente
-        )
+            ZStack {
+                Image("background")
+                    .resizable()
+                    .scaledToFill()
+                // colocar assets color
+                LinearGradient(gradient: Gradient(colors: [Color("linearGratient").opacity(0), .black]), startPoint: .top, endPoint: .bottom)
+            }
+        ).ignoresSafeArea()
     }
+    
+    //app deve exibir um alerta dizendo que as informações não são válidas.
+    func isCredentialValid() {
+        if login == "19971144383" && password == "Thais@2022" {
+            verified = true
+        } else {
+            showingAlert = true
+        }
+    }
+    
 }
 
 /*

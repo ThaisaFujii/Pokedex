@@ -35,9 +35,11 @@ struct HomeView: View {
             }
         }
         .background(Color("backgroundColor"))
+        .navigationTitle("Pokemon name")
         .navigationBarHidden(true)
         .navigationBarTitle("", displayMode: .inline)
     }
+
   }
 }
 
