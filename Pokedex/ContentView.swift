@@ -10,7 +10,12 @@ import SwiftUI
 struct ContentView: View {
 //    let image = Image("background")
     var body: some View {
-        HomeView()
+//        LoginView()
+        NavigationView {
+            HomeView()
+            
+        }
+//        DetailView()
 //        AsyncImage(url: image, content: view)
     }
 }
