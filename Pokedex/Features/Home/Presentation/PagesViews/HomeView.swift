@@ -21,26 +21,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     var body: some View {
-        NavigationView {
-        VStack(spacing: 0) {
-            TabBarHomeView()
-            ScrollView {
-                VStack(alignment: .leading) {
-                    // foreach list
-                    ZStack {
-                        PokedexCardView()
+            VStack(spacing: 0) {
+                TabBarHomeView()
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        // foreach list
+                        ZStack {
+                            PokedexCardView()
+                        }
                     }
                 }
             }
+            .background(Color("backgroundColor"))
+            .navigationTitle("Pokemon name")
+            .navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
         }
-        .background(Color("backgroundColor"))
-        .navigationTitle("Pokemon name")
-        .navigationBarHidden(true)
-        .navigationBarTitle("", displayMode: .inline)
-    }
-
-  }
 }
 
 struct HomeView_Previews: PreviewProvider {

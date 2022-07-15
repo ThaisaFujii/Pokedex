@@ -22,6 +22,9 @@
 		1FB62F9F287F407800620CDB /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FB62F9C287F407800620CDB /* Roboto-Medium.otf */; };
 		1FB62FA0287F407800620CDB /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FB62F9D287F407800620CDB /* Roboto-Bold.otf */; };
 		1FB62FA2287F4EF200620CDB /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB62FA1287F4EF200620CDB /* CustomNavBarView.swift */; };
+		1FB7B0C0288066AA00E390E5 /* AbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB7B0BF288066AA00E390E5 /* AbilitiesView.swift */; };
+		1FB7B0C228807C9800E390E5 /* SpritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB7B0C128807C9800E390E5 /* SpritesView.swift */; };
+		1FB7B0C428807FFA00E390E5 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB7B0C328807FFA00E390E5 /* ImageDetailView.swift */; };
 		1FC56FC5287C85690070ED3F /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC4287C85680070ED3F /* SecurityView.swift */; };
 		1FC56FC9287CC7F00070ED3F /* TabBarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC8287CC7F00070ED3F /* TabBarHomeView.swift */; };
 		1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */; };
@@ -44,6 +47,9 @@
 		1FB62F9C287F407800620CDB /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
 		1FB62F9D287F407800620CDB /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
 		1FB62FA1287F4EF200620CDB /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		1FB7B0BF288066AA00E390E5 /* AbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesView.swift; sourceTree = "<group>"; };
+		1FB7B0C128807C9800E390E5 /* SpritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpritesView.swift; sourceTree = "<group>"; };
+		1FB7B0C328807FFA00E390E5 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		1FC56FB3287C596B0070ED3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1FC56FC4287C85680070ED3F /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		1FC56FC8287CC7F00070ED3F /* TabBarHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeView.swift; sourceTree = "<group>"; };
@@ -89,9 +95,7 @@
 				1FC56FB5287C675A0070ED3F /* Features */,
 				1F3543E32878A8F200913F9A /* ContentView.swift */,
 				1F3543F32878AC0900913F9A /* DetailView.swift */,
-				1FB62FA1287F4EF200620CDB /* CustomNavBarView.swift */,
-				1FB62F98287F33A200620CDB /* StatsView.swift */,
-				1FB62F7A287F08A300620CDB /* VisualEffectView.swift */,
+				1FB7B0B428802C2200E390E5 /* CustomNavBar */,
 				1F2E5FBB287DCE780008B40D /* ScreenStyle.swift */,
 				1F3543E52878A8F600913F9A /* Assets.xcassets */,
 				1F3543E72878A8F600913F9A /* Preview Content */,
@@ -115,6 +119,14 @@
 				1FB62F9B287F407800620CDB /* Roboto-Regular.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		1FB7B0B428802C2200E390E5 /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				1FB62FA1287F4EF200620CDB /* CustomNavBarView.swift */,
+			);
+			path = CustomNavBar;
 			sourceTree = "<group>";
 		};
 		1FC56FB4287C673B0070ED3F /* Assistents */ = {
@@ -196,6 +208,7 @@
 		1FC56FBD287C68410070ED3F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1FB62F7A287F08A300620CDB /* VisualEffectView.swift */,
 				1F2E5FBD287DF1F20008B40D /* ProgressBarView.swift */,
 				1FC56FC4287C85680070ED3F /* SecurityView.swift */,
 			);
@@ -206,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				1FC56FC8287CC7F00070ED3F /* TabBarHomeView.swift */,
+				1FB62F98287F33A200620CDB /* StatsView.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -267,6 +281,9 @@
 		1FC56FCE287CC9630070ED3F /* PagesViews */ = {
 			isa = PBXGroup;
 			children = (
+				1FB7B0BF288066AA00E390E5 /* AbilitiesView.swift */,
+				1FB7B0C128807C9800E390E5 /* SpritesView.swift */,
+				1FB7B0C328807FFA00E390E5 /* ImageDetailView.swift */,
 			);
 			path = PagesViews;
 			sourceTree = "<group>";
@@ -344,11 +361,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB7B0C0288066AA00E390E5 /* AbilitiesView.swift in Sources */,
+				1FB7B0C228807C9800E390E5 /* SpritesView.swift in Sources */,
 				1F3543F02878ABEE00913F9A /* LoginView.swift in Sources */,
 				1F3543F22878ABF900913F9A /* HomeView.swift in Sources */,
 				1FC56FC9287CC7F00070ED3F /* TabBarHomeView.swift in Sources */,
 				1FC56FC5287C85690070ED3F /* SecurityView.swift in Sources */,
 				1F3543E42878A8F200913F9A /* ContentView.swift in Sources */,
+				1FB7B0C428807FFA00E390E5 /* ImageDetailView.swift in Sources */,
 				1FB62FA2287F4EF200620CDB /* CustomNavBarView.swift in Sources */,
 				1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */,
 				1FB62F7B287F08A300620CDB /* VisualEffectView.swift in Sources */,

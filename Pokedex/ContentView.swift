@@ -11,7 +11,10 @@ struct ContentView: View {
 //    let image = Image("background")
     var body: some View {
 //        LoginView()
-        HomeView()
+        NavigationView {
+            HomeView()
+            
+        }
 //        DetailView()
 //        AsyncImage(url: image, content: view)
     }
