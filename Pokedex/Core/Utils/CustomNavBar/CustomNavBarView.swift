@@ -12,22 +12,14 @@ import SwiftUI
 
 struct CustomNavBarView: View {
     @Environment(\.presentationMode) var presentationMode
-    let showBackButton: Bool
-    let title: String
  //   let subtitle: String?
     
     var body: some View {
         HStack {
-            if showBackButton {
                 backButton
-            }
             Spacer()
             titleSection
             Spacer()
-            if showBackButton {
-                backButton
-                    .opacity(0)
-            }
         }
         .padding(.bottom, 18)
         .frame(maxWidth: .infinity)
@@ -38,7 +30,7 @@ struct CustomNavBarView: View {
 
 struct CustomNavBarView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomNavBarView(showBackButton: true, title: "Pokemon Name")
+        CustomNavBarView()
         Spacer()
     }
 }
@@ -53,6 +45,7 @@ extension CustomNavBarView {
             }, label: {
                 Image(systemName: "chevron.left")
                     .padding(.leading, 20)
+                    .padding(.top, 42)
             })
         })
     }
@@ -60,17 +53,19 @@ extension CustomNavBarView {
     private var titleSection: some View {
         VStack(spacing: 0) {
             HStack {
-                Text(title)
+                Text("Pokemon Name")
                     .font(Font.custom("Roboto-Medium", size: 22))
                     .foregroundColor(.white)
-                    .padding(.leading, 16)
+                    .padding(.leading, 20)
+                    .padding(.top, 42)
                 //  if let subtitle = subtitle {
                 Spacer()
                 Button(action: {
                     //
                 }, label: {
                     Image("heart")
-                        .padding(.trailing, 28)
+                        .padding(.top, 42)
+                        .padding(.trailing, 22)
                 })
                 //  }
             }

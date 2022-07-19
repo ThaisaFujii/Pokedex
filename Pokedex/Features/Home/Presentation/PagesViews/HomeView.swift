@@ -21,16 +21,17 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @State var pokemons: [Pokemon] = []
     var body: some View {
             VStack(spacing: 0) {
                 TabBarHomeView()
                 ScrollView {
                     VStack(alignment: .leading) {
-                        // foreach list
-                        ZStack {
-                            PokedexCardView()
-                        }
+                        ForEach(pokemons, id: \.self){ poke in
+                                NavigationLink(destination: DetailView(), label: {
+                                    PokedexCardView(pokemon: poke)
+                                }
+                            )}
                     }
                 }
             }
@@ -38,7 +39,16 @@ struct HomeView: View {
             .navigationTitle("Pokemon name")
             .navigationBarHidden(true)
             .navigationBarTitle("", displayMode: .inline)
+            .onAppear {
+                PokeApi().getData { pokemonResult in
+                    if let pokemonResult = pokemonResult {
+                        self.pokemons = pokemonResult.results ?? []
+                        print(pokemons)
+                    }
+                }
+            }
         }
+
 }
 
 struct HomeView_Previews: PreviewProvider {

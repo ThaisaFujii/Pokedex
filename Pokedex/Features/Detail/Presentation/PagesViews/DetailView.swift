@@ -27,7 +27,7 @@ struct DetailView: View {
     
     var body: some View {
             VStack(spacing: 0) {
-                CustomNavBarView(showBackButton: true, title: "Pokemon Name")
+                CustomNavBarView()
                 ScrollView {
                     ImageDetailView()
                     // ----------------------------------------
