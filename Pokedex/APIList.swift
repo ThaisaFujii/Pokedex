@@ -21,31 +21,71 @@ import Alamofire
 
 // ------------ MODEL ------------
 struct ApiResult<T: Codable>: Codable {
-
     var count: Int?
     var next: String?
     var previous: String?
     var results: [T]?
 }
 
+// MARK: - Pokemon
 struct Pokemon: Codable, Identifiable, Hashable {
     var id : String? = UUID().uuidString
     var name: String?
     var url: String?
 }
 
+// MARK: - PokemonList
+struct PokemonDetail: Codable {
+    var abilities: [Ability]?
+    var sprites: Sprites?
+    var stats: [Stat]?
+}
+// MARK: - Extensao
 extension StringProtocol {
     var firstUppercased: String { return prefix(1).uppercased() + dropFirst() }
     var firstCapitalized: String { return prefix(1).capitalized + dropFirst() }
 }
-// ------------ MODEL ------------
 
-class PokeApi: ObservableObject {
-    // construir funcao generica 
+// MARK: - Ability
+struct Ability: Codable {
+    var slot: Int?
+    var ability: AbilityInfo?
+}
+
+struct AbilityInfo: Codable, Hashable {
+    var name: String?
+    var url: String?
+}
+
+// MARK: - Sprites
+struct Sprites: Codable {
+    var backDefault: String?
+    var backFemale: String?
+    var backShiny: String?
+    var backShinyFemale: String?
+    var frontDefault: String?
+    var frontFemale: String?
+    var frontShiny: String?
+    var frontShinyFemale: String?
+}
+
+// MARK: - Stat
+struct Stat: Codable, Hashable {
+    var base_stat, effort: Int?
+    var stat: StatInfo?
+}
+
+// MARK: - StatInfo
+struct StatInfo: Codable, Hashable {
+    var name: String?
+    var url: String?
+}
+
+// MARK: - Requisicoes
+
+class PokeApi {
     func getData(offSet:Int ,callback: @escaping (ApiResult<Pokemon>?) -> Void) {
-        
         AF.request("https://pokeapi.co/api/v2/pokemon?limit=50&offset=\(offSet)", method: .get).responseDecodable(of: ApiResult<Pokemon>.self, decoder: JSONDecoder()){ response in
-       //     self.isLoading = false
             switch response.result {
             case .success(let data):
                 callback(data)
@@ -54,43 +94,21 @@ class PokeApi: ObservableObject {
                 print("Ocorreu um \(error), por favor verifique")
             }
         }
-
     }
-    
 }
 
-/*
- func getData(callback: @escaping([ApiResult]) -> ()) {
- guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/ditto") else {
-     return
- }
- // https://pokeapi.co/api/v2/pokemon/1/ como pegar id da string
- // https://pokeapi.co/api/v2/pokemon/10/ item especifico
-URLSession.shared.dataTask(with: url) { data, response, error in
- 
- guard let data = data, error == nil else { return }
-
- let pokemonList = try! JSONDecoder().decode(ApiResult.self, from: data)
-
-//            DispatchQueue.main.async {
-//                callback(pokemonList.results)
-//            }
-}.resume()
+class PokeStatDetail {
+    func getPokemonDetails(name: String, callback: @escaping(PokemonDetail?) -> Void) {
+        AF.request("https://pokeapi.co/api/v2/pokemon/\(name)", method: .get).responseDecodable(of: PokemonDetail.self, decoder: JSONDecoder()){ response in
+            switch response.result {
+            case .success(let data):
+                callback(data)
+                print(data)
+            case .failure(let error):
+                print("Ocorreu um \(error), por favor verifique")
+            }
+        }
+    }
 }
- 
- func getCoinItem(id:String, callback: @escaping (Coin) -> Void){
-     // injetar erro no coins p teste
-     AF.request("\(Constants.API)coins/\(id)", method: .get).responseDecodable(of: Coin.self, decoder: JSONDecoder()){ response in // callback
-         self.isLoading = false
-         switch response.result {
-         case .success(let data):
-             self.isCompleted = true
-             callback(data)
-             print(data)
-         case .failure(let error):
-             print(error)
-         }
-     }
- }
- 
- */
+
+

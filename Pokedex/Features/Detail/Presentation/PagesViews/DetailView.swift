@@ -6,8 +6,6 @@
 //
 
 /*
- 
- 
  ------------------------------------------------------------------------------
  Call api and load pokemon details
  Clicking on favorite icon set/unset favorite to this pokemon.
@@ -16,46 +14,51 @@
 import SwiftUI
 
 struct DetailView: View {
-    let pokemonDetail: Pokemon
-
-    /*
-     FAZER O HEADER PERSONALIZADO
-     NOME VEM DO BACKEND
-     IMAGEM VEM DO BACKEND
-     SPRITES ROLAGEM DE IMAGENS
-     */
+    @State var pokemonDetail: Pokemon
+    @State var detailStatresult: PokemonDetail
+    @State var isLoading: Bool = true
     
     var body: some View {
-            VStack(spacing: 0) {
-                CustomNavBarView(pokemonCustomNavBar: pokemonDetail)
+        VStack(spacing: 0) {
+            CustomNavBarView(pokemonCustomNavBar: pokemonDetail)
+            // requisicao assincrona
+            if isLoading == false {
                 ScrollView {
                     ImageDetailView(pokemonImage: pokemonDetail)
                     // ----------------------------------------
                     VStack(alignment: .leading) {
-                        AbilitiesView()
+                        AbilitiesView(abilitiesList: detailStatresult.abilities ?? [])
                         // ----------------------------------
-                        StatsView()
+                        StatsView(listStat: detailStatresult.stats ?? [])
                         // ------------------------------
-                        SpritesView()
-                        
+                        SpritesView(listSprite: detailStatresult.sprites ?? Sprites())
                     }
                 }
                 .background(Color("backgroundColor"))
+            } else {
+                ProgressView()
             }
-            .navigationBarHidden(true)
-            .navigationBarTitle("", displayMode: .inline)
-            .onAppear {
-              //  pokemonImage = getPokemonImage(stringURL: pokemonDetail.url ?? " ")
-            }
+        }
+        .navigationBarHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
+        .onAppear {
+            getPokemonDetails()
+        }
     }
     
     func getPokemonDetails() {
-        // fazer requisicao dos detalhes/habilidades
+        PokeStatDetail().getPokemonDetails(name: pokemonDetail.name ?? "") { abilitie in
+            isLoading = false
+            if let abilitie = abilitie {
+                self.detailStatresult = abilitie
+                print(detailStatresult)
+            }
         }
+    }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(pokemonDetail: Pokemon())
+        DetailView(pokemonDetail: Pokemon(), detailStatresult: PokemonDetail())
     }
 }

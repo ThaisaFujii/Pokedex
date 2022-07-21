@@ -33,7 +33,7 @@ struct HomeView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     ForEach(pokemons, id: \.self){ poke in
-                        NavigationLink(destination: DetailView(pokemonDetail: poke), label: {
+                        NavigationLink(destination: DetailView(pokemonDetail: poke, detailStatresult: PokemonDetail()), label: {
                             PokedexCardView(pokemon: poke)
                                 .onAppear {
                                     if poke == pokemons.last {
@@ -63,7 +63,7 @@ struct HomeView: View {
     }
     
     func loadList() {
-        if offset <= count ?? itemsPerPage{
+        if offset <= count ?? itemsPerPage {
             isLoading = true
        //     DispatchQueue.main.asyncAfter(deadline: .now() + 2){getData()}
             

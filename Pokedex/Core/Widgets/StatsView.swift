@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StatsView: View {
+    @State var listStat: [Stat]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Stats")
@@ -16,29 +18,17 @@ struct StatsView: View {
                 .padding(.bottom, 8)
             HStack(spacing: 0) {
                 VStack(alignment: .trailing, spacing: 12){
-                    Text("HP")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .frame(height: 20)
-                    Text("Attack")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .frame(height: 20)
-                    Text("Defense")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .frame(height: 20)
-                    Text("Special attack")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .frame(height: 20)
-                    Text("Special Defense")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .frame(height: 20)
+                    ForEach(listStat, id: \.self){ stat in 
+                        Text(stat.stat?.name ?? "N/A")
+                            .font(Font.custom("Roboto-Regular", size: 12))
+                            .frame(height: 20)
+                    }
                 }
                 .padding(.trailing, 16)
                 VStack(spacing: 12){
-                    ProgressBarView(value: 10)
-                    ProgressBarView(value: 10)
-                    ProgressBarView(value: 10)
-                    ProgressBarView(value: 10)
-                    ProgressBarView(value: 10)
+                    ForEach(listStat, id: \.self){ percentage in
+                        ProgressBarView(value: Double(percentage.base_stat ?? 0))
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -49,6 +39,6 @@ struct StatsView: View {
 
 struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsView()
+        StatsView(listStat: [])
     }
 }
