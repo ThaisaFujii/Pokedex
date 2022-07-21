@@ -22,33 +22,65 @@ import SwiftUI
 
 struct HomeView: View {
     @State var pokemons: [Pokemon] = []
+    @State var isLoading: Bool = true
+    @State var offset: Int = 0 // define em qual 'pagina' esta
+    let itemsPerPage: Int = 50 // define quantos pokemons serao carregados
+    @State var count:Int? // conta onde que parou o carregamento
+    
     var body: some View {
-            VStack(spacing: 0) {
-                TabBarHomeView()
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        ForEach(pokemons, id: \.self){ poke in
-                                NavigationLink(destination: DetailView(), label: {
-                                    PokedexCardView(pokemon: poke)
+        VStack(spacing: 0) {
+            TabBarHomeView()
+            ScrollView {
+                LazyVStack(alignment: .leading) {
+                    ForEach(pokemons, id: \.self){ poke in
+                        NavigationLink(destination: DetailView(pokemonDetail: poke), label: {
+                            PokedexCardView(pokemon: poke)
+                                .onAppear {
+                                    if poke == pokemons.last {
+                                        loadList()
+                                    }
                                 }
-                            )}
-                    }
-                }
-            }
-            .background(Color("backgroundColor"))
-            .navigationTitle("Pokemon name")
-            .navigationBarHidden(true)
-            .navigationBarTitle("", displayMode: .inline)
-            .onAppear {
-                PokeApi().getData { pokemonResult in
-                    if let pokemonResult = pokemonResult {
-                        self.pokemons = pokemonResult.results ?? []
-                        print(pokemons)
+                        }
+                        )}
+                    if isLoading {
+                        HStack {
+                            Spacer()
+                        ProgressView("Loading") // centralizar no meio da tela, deixar branco
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                            Spacer()
+                        }
                     }
                 }
             }
         }
-
+        .background(Color("backgroundColor"))
+        .navigationTitle("Pokemon name")
+        .navigationBarHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
+        .onAppear {
+            getData()
+        }
+    }
+    
+    func loadList() {
+        if offset <= count ?? itemsPerPage{
+            isLoading = true
+       //     DispatchQueue.main.asyncAfter(deadline: .now() + 2){getData()}
+            
+        }
+    }
+    
+    func getData() {
+        PokeApi().getData(offSet: offset) { pokemonResult in
+            isLoading = false
+            if let pokemonResult = pokemonResult {
+                offset += itemsPerPage
+                count = pokemonResult.count
+                self.pokemons += pokemonResult.results ?? []
+                print(pokemons)
+            }
+        }
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {

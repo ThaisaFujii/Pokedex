@@ -32,15 +32,19 @@ struct Pokemon: Codable, Identifiable, Hashable {
     var id : String? = UUID().uuidString
     var name: String?
     var url: String?
-    
+}
+
+extension StringProtocol {
+    var firstUppercased: String { return prefix(1).uppercased() + dropFirst() }
+    var firstCapitalized: String { return prefix(1).capitalized + dropFirst() }
 }
 // ------------ MODEL ------------
 
-class PokeApi {
+class PokeApi: ObservableObject {
     // construir funcao generica 
-    func getData(callback: @escaping (ApiResult<Pokemon>?) -> Void) {
+    func getData(offSet:Int ,callback: @escaping (ApiResult<Pokemon>?) -> Void) {
         
-        AF.request("https://pokeapi.co/api/v2/pokemon?limit=50&offset=0", method: .get).responseDecodable(of: ApiResult<Pokemon>.self, decoder: JSONDecoder()){ response in
+        AF.request("https://pokeapi.co/api/v2/pokemon?limit=50&offset=\(offSet)", method: .get).responseDecodable(of: ApiResult<Pokemon>.self, decoder: JSONDecoder()){ response in
        //     self.isLoading = false
             switch response.result {
             case .success(let data):

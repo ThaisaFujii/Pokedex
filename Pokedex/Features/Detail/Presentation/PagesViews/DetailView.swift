@@ -16,20 +16,20 @@
 import SwiftUI
 
 struct DetailView: View {
+    let pokemonDetail: Pokemon
+
     /*
-     
      FAZER O HEADER PERSONALIZADO
      NOME VEM DO BACKEND
      IMAGEM VEM DO BACKEND
      SPRITES ROLAGEM DE IMAGENS
-     
      */
     
     var body: some View {
             VStack(spacing: 0) {
-                CustomNavBarView()
+                CustomNavBarView(pokemonCustomNavBar: pokemonDetail)
                 ScrollView {
-                    ImageDetailView()
+                    ImageDetailView(pokemonImage: pokemonDetail)
                     // ----------------------------------------
                     VStack(alignment: .leading) {
                         AbilitiesView()
@@ -44,11 +44,18 @@ struct DetailView: View {
             }
             .navigationBarHidden(true)
             .navigationBarTitle("", displayMode: .inline)
+            .onAppear {
+              //  pokemonImage = getPokemonImage(stringURL: pokemonDetail.url ?? " ")
+            }
     }
+    
+    func getPokemonDetails() {
+        // fazer requisicao dos detalhes/habilidades
+        }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(pokemonDetail: Pokemon())
     }
 }

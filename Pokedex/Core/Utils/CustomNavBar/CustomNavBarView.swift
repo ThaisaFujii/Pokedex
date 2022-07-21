@@ -12,7 +12,7 @@ import SwiftUI
 
 struct CustomNavBarView: View {
     @Environment(\.presentationMode) var presentationMode
- //   let subtitle: String?
+    let pokemonCustomNavBar: Pokemon
     
     var body: some View {
         HStack {
@@ -28,12 +28,6 @@ struct CustomNavBarView: View {
     }
 }
 
-struct CustomNavBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomNavBarView()
-        Spacer()
-    }
-}
 
 // custom subview
 extension CustomNavBarView {
@@ -53,12 +47,11 @@ extension CustomNavBarView {
     private var titleSection: some View {
         VStack(spacing: 0) {
             HStack {
-                Text("Pokemon Name")
+                Text(pokemonCustomNavBar.name?.firstUppercased ?? "NA")
                     .font(Font.custom("Roboto-Medium", size: 22))
                     .foregroundColor(.white)
                     .padding(.leading, 20)
                     .padding(.top, 42)
-                //  if let subtitle = subtitle {
                 Spacer()
                 Button(action: {
                     //
@@ -67,9 +60,15 @@ extension CustomNavBarView {
                         .padding(.top, 42)
                         .padding(.trailing, 22)
                 })
-                //  }
             }
         }
         .foregroundColor(.white)
+    }
+}
+
+struct CustomNavBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomNavBarView(pokemonCustomNavBar: Pokemon())
+        Spacer()
     }
 }

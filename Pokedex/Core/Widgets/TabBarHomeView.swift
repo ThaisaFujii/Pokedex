@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TabBarHomeView: View {
+    @State var showingLogout = false
+    @State var showingAlert = false
+    
     var body: some View {
         HStack {
             Text("Pokedex")
@@ -23,14 +26,16 @@ struct TabBarHomeView: View {
             })
             //botao para sair do app
             Button(action: {
-                //   bemvindoviewmodel.showingAlert = true
+                showingAlert = true
             }, label: {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
-                    .padding(.trailing, 22)
+                    .padding(.trailing, 20)
             })
-        // destino e confirmacao ao usuario sobre sair do app
-        //Navigation
-        //  Button("Sair"){logica booleana}}
+            // destino e confirmacao ao usuario sobre sair do app
+            NavigationLink(destination: LoginView(), isActive: $showingLogout){}
+                .confirmationDialog("Tem certeza que deseja encerrar a sessao?", isPresented: $showingAlert, titleVisibility: .visible ){
+                    
+                    Button("Sair"){ showingLogout = true }}
         }
         .padding(.bottom, 18)
         .frame(maxWidth: .infinity)

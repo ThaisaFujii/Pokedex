@@ -14,20 +14,21 @@ struct PokedexCardView: View {
     
     var body: some View {
         HStack {
-                        Text(pokemon.name ?? "NA")
+                        Text(pokemon.name?.firstUppercased ?? "NA")
                         .font(Font.custom("Roboto-Bold", size: 12))
                         .foregroundColor(.white)
-                        .padding(28)
-                        .frame(width: 270, height: 85)
+                        .padding(30)
+                        .frame(width: 272, height: 90)
                         .background(Color("toolBarColor"))
                         .cornerRadius(20)
                         .padding(.leading, 73)
+                        .shadow(color: .black, radius: 0.2, x: 0, y: 2)
                         .overlay(
                             ZStack {
                                 Circle()
                                     .fill(Color("circleColor"))
                                     .frame(width: radius * 2, height: radius * 2)
-                                
+                                if pokemon.url != nil {
                                 AsyncImage( // arrumar quando carrega a imagem ou n acha
                                     url: URL(string: getPokemonImage(stringURL: pokemon.url ?? "")),
                                     content: { image in
@@ -36,16 +37,19 @@ struct PokedexCardView: View {
                                             .frame(width: squareSide, height: squareSide)
                                     },
                                     placeholder: {
-                                        Image(systemName: "x.square")
-                                            .font(Font.system(size: 200))
+                                        ProgressView()
                                     }
-                                ) // usar url pra atualizar id
-                                    
+                                )
+                                } else {
+                                    Image(systemName: "nosign")
+                                        .font(Font.system(size: 100))
+                                }
                             }
                                 .padding(.trailing, 230)
                         )
         }
-        .padding(44)
+        .padding(22)
+        .padding(.top, 10)
     }
     
     func getPokemonImage(stringURL: String) -> String {
