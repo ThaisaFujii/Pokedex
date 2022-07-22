@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SpritesView: View {
+    @State var listSprite: Sprites
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack {
@@ -21,9 +23,9 @@ struct SpritesView: View {
             // --------------------------------------
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    // for each
-                    Image("ditto")
-                    Image("ditto")
+//                    ForEach(listSprite, id: \.self){ sprite in
+                    Image("\(listSprite.backShiny ?? "")")
+//                    }
                 }
                 .padding(.leading, 16)
                 .padding(.trailing, 16)
@@ -34,6 +36,6 @@ struct SpritesView: View {
 
 struct SpritesView_Previews: PreviewProvider {
     static var previews: some View {
-        SpritesView()
+        SpritesView(listSprite: Sprites())
     }
 }

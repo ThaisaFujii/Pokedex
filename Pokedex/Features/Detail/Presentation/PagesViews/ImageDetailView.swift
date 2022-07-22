@@ -12,7 +12,6 @@ struct ImageDetailView: View {
     // criar uma funcao getSprite, pegar imagem
     // UserDefault
     @State var pokemonImage: Pokemon
-
     
     var body: some View {
         VStack(alignment: .center) {
@@ -33,7 +32,6 @@ struct ImageDetailView: View {
     
     func getPokemonImage(stringURL: String) -> String {
         let url = URL(string: stringURL)
-        
         if let url = url {
             let id = url.lastPathComponent
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"

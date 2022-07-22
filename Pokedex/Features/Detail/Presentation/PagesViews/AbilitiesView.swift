@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AbilitiesView: View {
+    @State var abilitiesList: [Ability]
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Abilities")
@@ -17,16 +19,17 @@ struct AbilitiesView: View {
             // --------------------------------------
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    // for each
-                    Text("Abilitie name")
-                        .font(Font.custom("Roboto-Regular", size: 12))
-                        .padding(6)
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
-                        .background(Color("abilitynameColor"))
-                        .cornerRadius(45)
-                        .padding(.bottom, 16)
-                        .padding(.leading, 16)
+                    ForEach(abilitiesList){ ability in
+                        Text(ability)
+                            .font(Font.custom("Roboto-Regular", size: 12))
+                            .padding(6)
+                            .padding(.leading, 10)
+                            .padding(.trailing, 10)
+                            .background(Color("abilitynameColor"))
+                            .cornerRadius(45)
+                            .padding(.bottom, 16)
+                            .padding(.leading, 16)
+                    }
                 }
             }
         }
@@ -36,6 +39,6 @@ struct AbilitiesView: View {
 
 struct AbilitiesView_Previews: PreviewProvider {
     static var previews: some View {
-        AbilitiesView()
+        AbilitiesView(abilitiesList: [Ability]())
     }
 }

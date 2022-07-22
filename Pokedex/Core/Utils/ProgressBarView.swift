@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct ProgressBarView: View {
-    var value: Double
+    let value: Double
     
     var body: some View {
         VStack {
-            //GeometryReader tem consciencia do proprio tamanho
         GeometryReader { ge in
             ZStack(alignment: .leading) {
-                
                 Capsule().frame(width: ge.size.width).foregroundColor(Color.gray)
                 
-                Capsule().frame(width: ge.size.width * (value/100)).foregroundColor(Color("progressColor"))
-                
-                Text("20")
+                Capsule().frame(width: ge.size.width * CGFloat((value/100))).foregroundColor(Color("progressColor"))
+                // formatar value
+                Text("\(Int(value))")
                     .font(Font.custom("Roboto-Regular", size: 10))
                     .padding(.leading, 6)
                     .foregroundColor(.black)
