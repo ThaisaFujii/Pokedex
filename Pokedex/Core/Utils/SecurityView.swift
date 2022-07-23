@@ -18,7 +18,7 @@ struct SecurityView: View {
                 .frame(width: 18, height: 18)
             VStack{
             if isSecureField {
-                SecureField("Senha", text: $text)
+                SecureField("", text: $text)
             } else {
                 TextField(text, text: $text)
             }

@@ -54,22 +54,35 @@ struct LoginView: View {
                 .font(Font.custom("Roboto-Medium", size: 12))
                 .multilineTextAlignment(.center)
             HStack(spacing: 12) {
-                TextField("(xx) xxxx-xxxx", text: $phoneNumber)
-                    .keyboardType(.decimalPad)
-                    .font(Font.custom("Roboto-Medium", size: 12))
-                    .foregroundColor(.black).opacity(0.5)
-                    .padding(12)
-                    .background(Color.white)
-                    .cornerRadius(12)
+                ZStack(alignment: .leading) {
+                    if phoneNumber.isEmpty {
+                        Text("(xx) xxxx-xxxx")
+                            .foregroundColor(.black.opacity(0.5))
+                    }
+                    TextField("", text: $phoneNumber)
+                        .foregroundColor(.black)
+                }
+                .keyboardType(.decimalPad)
+                .font(Font.custom("Roboto-Medium", size: 12))
+                .padding(12)
+                .background(Color.white)
+                .cornerRadius(12)
                 
-                TextField("Password", text: $password)
-                    .font(Font.custom("Roboto-Medium", size: 12))
-                    .foregroundColor(.black).opacity(0.5)
-                    .padding(12)
-                    .background(Color.white)
-                    .cornerRadius(12)
+                ZStack(alignment: .leading) {
+                    if password.isEmpty {
+                        Text("Password")
+                            .foregroundColor(.black.opacity(0.5))
+                    }
+                    SecurityView(text: $password)
+                        .foregroundColor(.black)
+                }
+                .font(Font.custom("Roboto-Medium", size: 12))
+                .padding(12)
+                .background(Color.white)
+                .cornerRadius(12)
             }
             .padding(32)
+            
             
             NavigationLink(destination: HomeView(), isActive: $verified){} //criar navigation vazio
             Button(action: {
@@ -114,22 +127,19 @@ struct LoginView: View {
     
 }
 
-/*
+
  
  struct TextFieldStyle: ViewModifier {
  func body(content: Content) -> some View {
  content
- .font(Font.custom("Gilroy-Bold", size: 16))
- .padding(16)
- .overlay(
- RoundedRectangle(cornerRadius: 14)
- .stroke(Color("ThinGray"), lineWidth: 1)
- )
- .frame(width: 50, height: 50)
- }
+         .font(Font.custom("Roboto-Medium", size: 12))
+         .padding(12)
+         .background(Color.white)
+         .cornerRadius(12)
+    }
  }
  
- */
+
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()

@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
 //    let image = Image("background")
     var body: some View {
-//        LoginView()
         NavigationView {
             HomeView()
             

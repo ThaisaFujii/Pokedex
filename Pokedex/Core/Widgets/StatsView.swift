@@ -19,7 +19,7 @@ struct StatsView: View {
             HStack(spacing: 0) {
                 VStack(alignment: .trailing, spacing: 12){
                     ForEach(listStat, id: \.self){ stat in 
-                        Text(stat.stat?.name ?? "N/A")
+                        Text(stat.stat?.name?.firstUppercased ?? "N/A")
                             .font(Font.custom("Roboto-Regular", size: 12))
                             .frame(height: 20)
                     }

@@ -19,8 +19,8 @@ struct AbilitiesView: View {
             // --------------------------------------
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(abilitiesList){ ability in
-                        Text(ability)
+                    ForEach(abilitiesList, id: \.self){ ability in
+                        Text(ability.ability?.name?.firstUppercased ?? "NA")
                             .font(Font.custom("Roboto-Regular", size: 12))
                             .padding(6)
                             .padding(.leading, 10)
@@ -39,6 +39,6 @@ struct AbilitiesView: View {
 
 struct AbilitiesView_Previews: PreviewProvider {
     static var previews: some View {
-        AbilitiesView(abilitiesList: [Ability]())
+        AbilitiesView(abilitiesList: [])
     }
 }

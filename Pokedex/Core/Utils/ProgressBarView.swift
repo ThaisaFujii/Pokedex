@@ -14,9 +14,9 @@ struct ProgressBarView: View {
         VStack {
         GeometryReader { ge in
             ZStack(alignment: .leading) {
-                Capsule().frame(width: ge.size.width).foregroundColor(Color.gray)
+                Capsule().frame(width: ge.size.width).foregroundColor(Color("BackgroundProgress"))
                 
-                Capsule().frame(width: ge.size.width * CGFloat((value/100))).foregroundColor(Color("progressColor"))
+                Capsule().frame(width: ge.size.width * CGFloat((value/150))).foregroundColor(Color("progressColor"))
                 // formatar value
                 Text("\(Int(value))")
                     .font(Font.custom("Roboto-Regular", size: 10))
