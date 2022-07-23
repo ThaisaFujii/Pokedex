@@ -65,7 +65,7 @@ struct HomeView: View {
     func loadList() {
         if offset <= count ?? itemsPerPage {
             isLoading = true
-       //     DispatchQueue.main.asyncAfter(deadline: .now() + 2){getData()}
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2){getData()}
             
         }
     }

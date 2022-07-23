@@ -4,17 +4,8 @@
 //
 //  Created by Thaisa Fujii on 18/07/22.
 //https://pokeapi.co/api/v2/pokemon?limit=50&offset=0
-
-
-//struct Pokemon: Codable {
-//    var results: [PokemonList]
-//}
-//
-//struct PokemonList: Codable {
-//   // var id = UUID() // usar por causa do foreach
-//    var name: String
 //    var url: String //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{id}.png
-//}
+
 
 import Foundation
 import Alamofire
@@ -47,7 +38,7 @@ extension StringProtocol {
 }
 
 // MARK: - Ability
-struct Ability: Codable {
+struct Ability: Codable, Hashable {
     var slot: Int?
     var ability: AbilityInfo?
 }
@@ -59,14 +50,14 @@ struct AbilityInfo: Codable, Hashable {
 
 // MARK: - Sprites
 struct Sprites: Codable {
-    var backDefault: String?
-    var backFemale: String?
-    var backShiny: String?
-    var backShinyFemale: String?
-    var frontDefault: String?
-    var frontFemale: String?
-    var frontShiny: String?
-    var frontShinyFemale: String?
+    var back_default: String?
+    var back_female: String?
+    var back_shiny: String?
+    var back_shiny_female: String?
+    var front_default: String?
+    var front_female: String?
+    var front_shiny: String?
+    var front_shiny_female: String?
 }
 
 // MARK: - Stat
@@ -82,7 +73,6 @@ struct StatInfo: Codable, Hashable {
 }
 
 // MARK: - Requisicoes
-
 class PokeApi {
     func getData(offSet:Int ,callback: @escaping (ApiResult<Pokemon>?) -> Void) {
         AF.request("https://pokeapi.co/api/v2/pokemon?limit=50&offset=\(offSet)", method: .get).responseDecodable(of: ApiResult<Pokemon>.self, decoder: JSONDecoder()){ response in
