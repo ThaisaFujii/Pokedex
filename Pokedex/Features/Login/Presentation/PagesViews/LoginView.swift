@@ -38,25 +38,24 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var phoneNumber: String = ""
+    @State var phoneNumber: String = "" //encapsular
     @State var password: String = ""
-    @State var login:String = "" //encapsular
     @State var showingAlert = false
     @State var verified = false
     
     var body: some View {
         VStack {
             Spacer()
-            Text("Welcome to pokedex")
+            Text("Welcome to pokedex", comment: "Title of welcoming to the app")
                 .font(Font.custom("Roboto-Medium", size: 24))
                 .multilineTextAlignment(.center)
-            Text("Enter your login information")
+            Text("Enter your login information", comment: "Subtitle asking for login information")
                 .font(Font.custom("Roboto-Medium", size: 12))
                 .multilineTextAlignment(.center)
             HStack(spacing: 12) {
                 ZStack(alignment: .leading) {
                     if phoneNumber.isEmpty {
-                        Text("(xx) xxxx-xxxx")
+                        Text("(xx) xxxx-xxxx", comment: "Field for the input of phone number to login")
                             .foregroundColor(.black.opacity(0.5))
                     }
                     TextField("", text: $phoneNumber)
@@ -70,7 +69,7 @@ struct LoginView: View {
                 
                 ZStack(alignment: .leading) {
                     if password.isEmpty {
-                        Text("Password")
+                        Text("Password", comment: "Field for the input of password to login")
                             .foregroundColor(.black.opacity(0.5))
                     }
                     SecurityView(text: $password)
@@ -88,14 +87,14 @@ struct LoginView: View {
             Button(action: {
                 isCredentialValid()
             }, label: {
-                Text("Enter")
+                Text("Enter", comment: "Button for verification of the login information")
                     .font(Font.custom("Roboto-Medium", size: 12))
                     .foregroundColor(.black)
             })
             .alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("As informações não são válidas."),
-                    message: Text("Por favor colocar o login e a senha")
+                    title: Text("The information is not valid.", comment: "Alert message to the user, something went wrong"),
+                    message: Text("Please use the correct login and password.", comment: "The information used is incorrect, try again")
                 )
             }
             .frame(width: 140, height: 36)
@@ -118,7 +117,7 @@ struct LoginView: View {
     
     //app deve exibir um alerta dizendo que as informações não são válidas.
     func isCredentialValid() {
-        if login == "19971144383" && password == "Thais@2022" {
+        if phoneNumber == "19971144383" && password == "123456" {
             verified = true
         } else {
             showingAlert = true
@@ -126,7 +125,6 @@ struct LoginView: View {
     }
     
 }
-
 
  
  struct TextFieldStyle: ViewModifier {

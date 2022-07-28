@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Pokedex
+
+  Created by Thaisa Fujii on 25/07/22.
+  
+*/
+
+/* Login View translation */
+"Welcome to pokedex" = "Welcome to pokedex";
+"Enter your login information" = "Enter your login information";
+"Password" = "Password";
+"Enter" = "Enter";
+"The information is not valid." = "The information is not valid.";
+"Please use the correct login and password." = "Please use the correct login and password.";
+
+/* Home View translation */
+"Loading" = "Loading";
+"Are you sure you want to logout?" = "Are you sure you want to logout?";
+"Logout" = "Logout";
+
+/* Detail View translation */
+"Abilities" = "Abilities";
+"Stats" = "Stats";
+"Sprites" = "Sprites";

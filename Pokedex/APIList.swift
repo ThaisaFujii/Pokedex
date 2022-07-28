@@ -23,6 +23,7 @@ struct Pokemon: Codable, Identifiable, Hashable {
     var id : String? = UUID().uuidString
     var name: String?
     var url: String?
+    var isFavorite: Bool?
 }
 
 // MARK: - PokemonList

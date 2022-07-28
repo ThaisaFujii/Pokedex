@@ -43,6 +43,7 @@ struct DetailView: View {
         .navigationBarTitle("", displayMode: .inline)
         .onAppear {
             getPokemonDetails()
+            DB_Manager().verifiedIfPokemonIsFavorite(pokemonName: pokemonDetail.name ?? "")
         }
     }
     

@@ -22,6 +22,20 @@ struct SpritesView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     // alterar para switch
+//                switch (listSprite) {
+//                case listSprite.back_default?:
+//                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+//                            url: URL(string: listSprite.back_default ?? "Item vazio"),
+//                            content: { image in
+//                                image.resizable()
+//                                    .frame(width: 144, height: 144)
+//                            },
+//                            placeholder: {
+//                                ProgressView()
+//                            }
+//                        )
+//          //          break
+//                }
                     if listSprite.back_default != nil {
                         AsyncImage( // arrumar quando carrega a imagem ou n acha
                             url: URL(string: listSprite.back_default ?? ""),

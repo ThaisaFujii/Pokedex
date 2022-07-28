@@ -26,18 +26,31 @@ struct HomeView: View {
     @State var offset: Int = 0 // define em qual 'pagina' esta
     let itemsPerPage: Int = 50 // define quantos pokemons serao carregados
     @State var count:Int? // conta onde que parou o carregamento
+    @State var isFavorite: Bool = false
+    @State var firstAppear: Bool = true
     
     var body: some View {
         VStack(spacing: 0) {
-            TabBarHomeView()
+            TabBarHomeView(isFavorite: $isFavorite)
+                .onChange(of: isFavorite){ value in
+                    if value {
+                        pokemons = DB_Manager().getFavoritePokemonList()
+                        print("favoritos")
+                    } else {
+                        offset = 0
+                        pokemons = []
+                        getData()
+                        print("lista normal")
+                    }
+                }
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(pokemons, id: \.self){ poke in
+                    ForEach(pokemons, id: \.self) { poke in
                         NavigationLink(destination: DetailView(pokemonDetail: poke, detailStatresult: PokemonDetail()), label: {
                             PokedexCardView(pokemon: poke)
                                 .onAppear {
-                                    if poke == pokemons.last {
-                                        loadList()
+                                    if poke == pokemons.last && isFavorite == false {
+                                        loadList() // arrumar
                                     }
                                 }
                         }
@@ -46,7 +59,7 @@ struct HomeView: View {
                         HStack {
                             Spacer()
                         ProgressView("Loading") // centralizar no meio da tela, deixar branco
-                            .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                             Spacer()
                         }
                     }
@@ -58,7 +71,13 @@ struct HomeView: View {
         .navigationBarHidden(true)
         .navigationBarTitle("", displayMode: .inline)
         .onAppear {
-            getData()
+            if firstAppear {
+                firstAppear = false
+                getData()
+            }
+            if isFavorite {
+                pokemons = DB_Manager().getFavoritePokemonList()
+            }
         }
     }
     
