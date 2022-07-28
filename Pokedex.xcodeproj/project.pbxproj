@@ -16,8 +16,9 @@
 		1F3543F02878ABEE00913F9A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543EF2878ABEE00913F9A /* LoginView.swift */; };
 		1F3543F22878ABF900913F9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543F12878ABF900913F9A /* HomeView.swift */; };
 		1F3543F42878AC0900913F9A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3543F32878AC0900913F9A /* DetailView.swift */; };
-		1F3DB559288B1AFD0004F507 /* PhoneNumberValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DB558288B1AFD0004F507 /* PhoneNumberValidation.swift */; };
 		1F63F8B328857DA7006A8583 /* APIList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F63F8B228857DA7006A8583 /* APIList.swift */; };
+		1FAC671A289171840041D784 /* DB_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC6719289171840041D784 /* DB_Manager.swift */; };
+		1FAE92E3288F028E00306353 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FAE92E5288F028E00306353 /* Localizable.strings */; };
 		1FB62F7B287F08A300620CDB /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB62F7A287F08A300620CDB /* VisualEffectView.swift */; };
 		1FB62F99287F33A200620CDB /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB62F98287F33A200620CDB /* StatsView.swift */; };
 		1FB62F9E287F407800620CDB /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FB62F9B287F407800620CDB /* Roboto-Regular.otf */; };
@@ -30,6 +31,9 @@
 		1FC56FC5287C85690070ED3F /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC4287C85680070ED3F /* SecurityView.swift */; };
 		1FC56FC9287CC7F00070ED3F /* TabBarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FC8287CC7F00070ED3F /* TabBarHomeView.swift */; };
 		1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */; };
+		1FD533242893078B007698D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD533232893078B007698D5 /* LaunchScreen.storyboard */; };
+		1FD5332628930FC4007698D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD5332528930FC4007698D5 /* ViewController.swift */; };
+		1FD533282893113A007698D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD533272893113A007698D5 /* HomeViewController.swift */; };
 		7DCC1D6EE44AB909FDB41615 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE78893468CC5CF18606B460 /* Pods_Pokedex.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +48,10 @@
 		1F3543EF2878ABEE00913F9A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1F3543F12878ABF900913F9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1F3543F32878AC0900913F9A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		1F3DB558288B1AFD0004F507 /* PhoneNumberValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidation.swift; sourceTree = "<group>"; };
 		1F63F8B228857DA7006A8583 /* APIList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIList.swift; sourceTree = "<group>"; };
+		1FAC6719289171840041D784 /* DB_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_Manager.swift; sourceTree = "<group>"; };
+		1FAE92E4288F028E00306353 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1FAE92E6288F06DD00306353 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FB62F7A287F08A300620CDB /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		1FB62F98287F33A200620CDB /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		1FB62F9B287F407800620CDB /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 		1FC56FC4287C85680070ED3F /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		1FC56FC8287CC7F00070ED3F /* TabBarHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeView.swift; sourceTree = "<group>"; };
 		1FC56FCA287CC8430070ED3F /* PokedexCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexCardView.swift; sourceTree = "<group>"; };
+		1FD533232893078B007698D5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FD5332528930FC4007698D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1FD533272893113A007698D5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8B17C1AFB79EB3520C9B3E54 /* Pods-Pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.release.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.release.xcconfig"; sourceTree = "<group>"; };
 		AE78893468CC5CF18606B460 /* Pods_Pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED4AF841588D4620E7EDB5 /* Pods-Pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +97,8 @@
 		1F3543D52878A8F200913F9A = {
 			isa = PBXGroup;
 			children = (
+				1FD5332528930FC4007698D5 /* ViewController.swift */,
+				1FD533272893113A007698D5 /* HomeViewController.swift */,
 				1F3543E02878A8F200913F9A /* Pokedex */,
 				1F3543DF2878A8F200913F9A /* Products */,
 				18CC1F033DBD2FD606CCA878 /* Pods */,
@@ -106,10 +117,12 @@
 		1F3543E02878A8F200913F9A /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				1FB62F9A287F405800620CDB /* Font */,
+				1FAC6718289171620041D784 /* SQLite */,
 				1FC56FB3287C596B0070ED3F /* Info.plist */,
 				1F3543E12878A8F200913F9A /* PokedexApp.swift */,
 				1F3543E32878A8F200913F9A /* ContentView.swift */,
+				1FB62F9A287F405800620CDB /* Font */,
+				1FAE92DE288EEAC100306353 /* Resources */,
 				1FC56FB4287C673B0070ED3F /* Assistents */,
 				1FC56FBB287C68070070ED3F /* Core */,
 				1FC56FB6287C67680070ED3F /* Models */,
@@ -118,7 +131,7 @@
 				1F2E5FBB287DCE780008B40D /* ScreenStyle.swift */,
 				1F3543E52878A8F600913F9A /* Assets.xcassets */,
 				1F3543E72878A8F600913F9A /* Preview Content */,
-				1F3DB558288B1AFD0004F507 /* PhoneNumberValidation.swift */,
+				1FD533232893078B007698D5 /* LaunchScreen.storyboard */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -129,6 +142,22 @@
 				1F3543E82878A8F600913F9A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1FAC6718289171620041D784 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				1FAC6719289171840041D784 /* DB_Manager.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		1FAE92DE288EEAC100306353 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1FAE92E5288F028E00306353 /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		1FB62F9A287F405800620CDB /* Font */ = {
@@ -361,6 +390,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"pt-BR",
 				Base,
 			);
 			mainGroup = 1F3543D52878A8F200913F9A;
@@ -379,8 +409,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB62F9F287F407800620CDB /* Roboto-Medium.otf in Resources */,
+				1FAE92E3288F028E00306353 /* Localizable.strings in Resources */,
 				1FB62F9E287F407800620CDB /* Roboto-Regular.otf in Resources */,
 				1F3543E92878A8F600913F9A /* Preview Assets.xcassets in Resources */,
+				1FD533242893078B007698D5 /* LaunchScreen.storyboard in Resources */,
 				1F3543E62878A8F600913F9A /* Assets.xcassets in Resources */,
 				1FB62FA0287F407800620CDB /* Roboto-Bold.otf in Resources */,
 			);
@@ -436,8 +468,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB7B0C0288066AA00E390E5 /* AbilitiesView.swift in Sources */,
+				1FD5332628930FC4007698D5 /* ViewController.swift in Sources */,
 				1FB7B0C228807C9800E390E5 /* SpritesView.swift in Sources */,
 				1F63F8B328857DA7006A8583 /* APIList.swift in Sources */,
+				1FAC671A289171840041D784 /* DB_Manager.swift in Sources */,
 				1F3543F02878ABEE00913F9A /* LoginView.swift in Sources */,
 				1F3543F22878ABF900913F9A /* HomeView.swift in Sources */,
 				1FC56FC9287CC7F00070ED3F /* TabBarHomeView.swift in Sources */,
@@ -448,15 +482,28 @@
 				1FC56FCB287CC8430070ED3F /* PokedexCardView.swift in Sources */,
 				1FB62F7B287F08A300620CDB /* VisualEffectView.swift in Sources */,
 				1F3543F42878AC0900913F9A /* DetailView.swift in Sources */,
+				1FD533282893113A007698D5 /* HomeViewController.swift in Sources */,
 				1FB62F99287F33A200620CDB /* StatsView.swift in Sources */,
 				1F2E5FBE287DF1F20008B40D /* ProgressBarView.swift in Sources */,
 				1F3543E22878A8F200913F9A /* PokedexApp.swift in Sources */,
-				1F3DB559288B1AFD0004F507 /* PhoneNumberValidation.swift in Sources */,
 				1F2E5FBC287DCE780008B40D /* ScreenStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1FAE92E5288F028E00306353 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FAE92E4288F028E00306353 /* pt-BR */,
+				1FAE92E6288F06DD00306353 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1F3543EA2878A8F600913F9A /* Debug */ = {

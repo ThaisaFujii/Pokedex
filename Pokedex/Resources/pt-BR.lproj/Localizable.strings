@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Pokedex
+
+  Created by Thaisa Fujii on 25/07/22.
+  PLURAL: https://www.youtube.com/watch?v=lDp8jGBMsE8
+*/
+
+/* Login View translation */
+"Welcome to pokedex" = "Bem vindo ao pokedex PT";
+"Enter your login information" = "Insira sua informação de login";
+"Password" = "Senha";
+"Enter" = "Acessar";
+"The information is not valid." = "As informações não são válidas.";
+"Please use the correct login and password." = "Por favor, coloque o login e a senha correta.";
+
+/* Home View translation */
+"Loading" = "Carregando";
+"Are you sure you want to logout?" = "Tem certeza que deseja encerrar a sessao?";
+"Logout" = "Sair";
+
+/* Detail View translation */
+"Abilities" = "Habilidades";
+"Stats" = "Habilidades em Batalha";
+"Sprites" = "Gerações";

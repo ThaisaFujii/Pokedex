@@ -14,7 +14,7 @@ struct PokedexCardView: View {
     
     var body: some View {
         HStack {
-                        Text(pokemon.name?.firstUppercased ?? "NA")
+                        Text(pokemon.name?.firstUppercased ?? "N/A")
                         .font(Font.custom("Roboto-Bold", size: 12))
                         .foregroundColor(.white)
                         .padding(30)
@@ -22,7 +22,6 @@ struct PokedexCardView: View {
                         .background(Color("toolBarColor"))
                         .cornerRadius(20)
                         .padding(.leading, 73)
-                        .shadow(color: .black, radius: 0.2, x: 0, y: 2)
                         .overlay(
                             ZStack {
                                 Circle()
@@ -50,6 +49,7 @@ struct PokedexCardView: View {
         }
         .padding(22)
         .padding(.top, 10)
+        .shadow(color: .black, radius: 0.2, x: 0, y: 2)
     }
     
     func getPokemonImage(stringURL: String) -> String {

@@ -20,7 +20,7 @@ struct AbilitiesView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(abilitiesList, id: \.self){ ability in
-                        Text(ability.ability?.name?.firstUppercased ?? "NA")
+                        Text(ability.ability?.name?.firstUppercased ?? "N/A")
                             .font(Font.custom("Roboto-Regular", size: 12))
                             .padding(6)
                             .padding(.leading, 10)
