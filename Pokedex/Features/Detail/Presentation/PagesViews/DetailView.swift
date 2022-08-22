@@ -5,24 +5,20 @@
 //  Created by Thaisa Fujii on 08/07/22.
 //
 
-/*
- ------------------------------------------------------------------------------
- Call api and load pokemon details
- Clicking on favorite icon set/unset favorite to this pokemon.
- All the project needs to be translated to portuguese and english
- */
 import SwiftUI
 
 struct DetailView: View {
+    @StateObject var detailviewModel = DetailVM()
     @State var pokemonDetail: Pokemon
     @State var detailStatresult: PokemonDetail
-    @State var isLoading: Bool = true
+    
+    @ObservedObject var detailViewModel = DetailVM()
     
     var body: some View {
         VStack(spacing: 0) {
             CustomNavBarView(pokemonCustomNavBar: pokemonDetail)
             // requisicao assincrona
-            if isLoading == false {
+            if detailViewModel.isLoading == false {
                 ScrollView {
                     ImageDetailView(pokemonImage: pokemonDetail)
                     // ----------------------------------------
@@ -45,17 +41,29 @@ struct DetailView: View {
             getPokemonDetails()
             DB_Manager().verifiedIfPokemonIsFavorite(pokemonName: pokemonDetail.name ?? "")
         }
-    }
+        .alert(isPresented: $detailviewModel.errorAlert){
+            Alert(
+            title: Text("Internal Error"),
+                    message: Text("Your data was not found"))
+        }
+  }
     
+    //MARK: - getPokemonDetails
     func getPokemonDetails() {
-        PokeStatDetail().getPokemonDetails(name: pokemonDetail.name ?? "") { abilitie in
-            isLoading = false
-            if let abilitie = abilitie {
-                self.detailStatresult = abilitie
+        DetailVM.PokeStatDetail().getPokemonDetails(name: pokemonDetail.name ?? "") { abilitie in
+            detailViewModel.isLoading = false
+            switch abilitie {
+            case .success(let data):
+                self.detailStatresult = data
                 print(detailStatresult)
+            case .failure(let error):
+                // mostrar pro usuario qual é o erro especifico e fazer o mesmo para pagina de detalhe
+                detailviewModel.errorAlert = true
+                print(error)
             }
         }
     }
+
 }
 
 struct DetailView_Previews: PreviewProvider {

@@ -4,58 +4,37 @@
 //
 //  Created by Thaisa Fujii on 08/07/22.
 //
-/*
- HOME
- Fazer um toolbar com titulo e dois botoes no topo
- Fazer com que a cor seja igual do figma
- Fazer com que a safearea tenha a mesma cor
- Fazer infinity scrollview, carregando 50 pokemons por pagina
- 
- ------------------------------------------------------------------
- Load the pokemons from api with a loading on the screen and show all the default pictures using the url
- Clicking on favorite icon show only the favorited pokemons, clicking again show all the pokemon.
- favorite pokemons are saved on local storage.
- Clicking on logout icon logoff the user back to login screen.
- Use infinity scroll loading 50 pokemons per page
- */
+
 import SwiftUI
 
 struct HomeView: View {
-    @State var pokemons: [Pokemon] = []
-    @State var isLoading: Bool = true
-    @State var offset: Int = 0 // define em qual 'pagina' esta
-    let itemsPerPage: Int = 50 // define quantos pokemons serao carregados
-    @State var count:Int? // conta onde que parou o carregamento
-    @State var isFavorite: Bool = false
-    @State var firstAppear: Bool = true
+    @StateObject var homeViewModel = HomeVM()
     
     var body: some View {
         VStack(spacing: 0) {
-            TabBarHomeView(isFavorite: $isFavorite)
-                .onChange(of: isFavorite){ value in
+            TabBarHomeView(isFavorite: $homeViewModel.isFavorite)
+                .onChange(of: homeViewModel.isFavorite){ value in
                     if value {
-                        pokemons = DB_Manager().getFavoritePokemonList()
-                        print("favoritos")
+                        homeViewModel.pokemons = DB_Manager().getFavoritePokemonList()
                     } else {
-                        offset = 0
-                        pokemons = []
-                        getData()
-                        print("lista normal")
+                        homeViewModel.offset = 0
+                        homeViewModel.pokemons = []
+                        homeViewModel.getData()
                     }
                 }
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(pokemons, id: \.self) { poke in
-                        NavigationLink(destination: DetailView(pokemonDetail: poke, detailStatresult: PokemonDetail()), label: {
+                    ForEach(homeViewModel.pokemons, id: \.self) { poke in
+                        NavigationLink(destination: DetailView(pokemonDetail: poke, detailStatresult: PokemonDetail()),  label: {
                             PokedexCardView(pokemon: poke)
                                 .onAppear {
-                                    if poke == pokemons.last && isFavorite == false {
-                                        loadList() // arrumar
+                                    if poke == homeViewModel.pokemons.last && homeViewModel.isFavorite == false {
+                                        homeViewModel.loadList() // arrumar
                                     }
                                 }
                         }
                         )}
-                    if isLoading {
+                    if homeViewModel.isLoading {
                         HStack {
                             Spacer()
                         ProgressView("Loading") // centralizar no meio da tela, deixar branco
@@ -71,34 +50,20 @@ struct HomeView: View {
         .navigationBarHidden(true)
         .navigationBarTitle("", displayMode: .inline)
         .onAppear {
-            if firstAppear {
-                firstAppear = false
-                getData()
+            if homeViewModel.firstAppear {
+                homeViewModel.firstAppear = false
+                homeViewModel.getData()
             }
-            if isFavorite {
-                pokemons = DB_Manager().getFavoritePokemonList()
-            }
-        }
-    }
-    
-    func loadList() {
-        if offset <= count ?? itemsPerPage {
-            isLoading = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2){getData()}
-            
-        }
-    }
-    
-    func getData() {
-        PokeApi().getData(offSet: offset) { pokemonResult in
-            isLoading = false
-            if let pokemonResult = pokemonResult {
-                offset += itemsPerPage
-                count = pokemonResult.count
-                self.pokemons += pokemonResult.results ?? []
-                print(pokemons)
+            if homeViewModel.isFavorite {
+                homeViewModel.pokemons = DB_Manager().getFavoritePokemonList()
             }
         }
+        .alert(isPresented: $homeViewModel.errorAlert){
+            Alert(
+            title: Text("Internal Error"),
+                    message: Text("Your data was not found"))
+        }
+        .environmentObject(homeViewModel)
     }
 }
 
