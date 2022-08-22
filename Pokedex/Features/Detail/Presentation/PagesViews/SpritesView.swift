@@ -17,27 +17,10 @@ struct SpritesView: View {
                     .padding(.leading, 16)
                     .padding(.top, 6)
                     .foregroundColor(.white)
-
-            // -------------------------------------- APLICAR MACHINE LEARNING
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    // alterar para switch
-//                switch (listSprite) {
-//                case listSprite.back_default?:
-//                        AsyncImage( // arrumar quando carrega a imagem ou n acha
-//                            url: URL(string: listSprite.back_default ?? "Item vazio"),
-//                            content: { image in
-//                                image.resizable()
-//                                    .frame(width: 144, height: 144)
-//                            },
-//                            placeholder: {
-//                                ProgressView()
-//                            }
-//                        )
-//          //          break
-//                }
                     if listSprite.back_default != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.back_default ?? ""),
                             content: { image in
                                 image.resizable()
@@ -50,7 +33,7 @@ struct SpritesView: View {
                     }
                     
                     if listSprite.back_shiny != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.back_shiny ?? ""),
                             content: { image in
                                 image.resizable()
@@ -63,7 +46,7 @@ struct SpritesView: View {
                     }
                     
                     if listSprite.back_female != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.back_female ?? ""),
                             content: { image in
                                 image.resizable()
@@ -77,7 +60,7 @@ struct SpritesView: View {
                     }
                     
                     if listSprite.back_shiny_female != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.back_shiny_female ?? ""),
                             content: { image in
                                 image.resizable()
@@ -90,7 +73,7 @@ struct SpritesView: View {
                     }
                     
                     if listSprite.front_default != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.front_default ?? ""),
                             content: { image in
                                 image.resizable()
@@ -104,7 +87,7 @@ struct SpritesView: View {
                     }
                     
                     if listSprite.front_female != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.front_female ?? ""),
                             content: { image in
                                 image.resizable()
@@ -117,7 +100,7 @@ struct SpritesView: View {
                         )
                     }
                     if listSprite.front_shiny != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage(
                             url: URL(string: listSprite.front_shiny ?? ""),
                             content: { image in
                                 image.resizable()
@@ -130,7 +113,7 @@ struct SpritesView: View {
                         )
                     }
                     if listSprite.front_shiny_female != nil {
-                        AsyncImage( // arrumar quando carrega a imagem ou n acha
+                        AsyncImage( 
                             url: URL(string: listSprite.front_shiny_female ?? ""),
                             content: { image in
                                 image.resizable()

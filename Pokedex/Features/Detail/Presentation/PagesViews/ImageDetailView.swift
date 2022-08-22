@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct ImageDetailView: View {
-    // criar uma funcao getSprite, pegar imagem
-    // UserDefault
     @State var pokemonImage: Pokemon
+    @ObservedObject var detailViewModel = DetailVM()
     
     var body: some View {
         VStack(alignment: .center) {
-            AsyncImage( // arrumar quando carrega a imagem ou n acha
-                url: URL(string: getPokemonImage(stringURL: pokemonImage.url ?? "")),
+            AsyncImage( 
+                url: URL(string: detailViewModel.getPokemonImage(stringURL: pokemonImage.url ?? "")),
                 content: { image in
                     image.resizable()
                         .frame(width: 150, height: 150)
@@ -27,16 +26,6 @@ struct ImageDetailView: View {
                     ProgressView()
                 }
             )
-        }
-    }
-    
-    func getPokemonImage(stringURL: String) -> String {
-        let url = URL(string: stringURL)
-        if let url = url {
-            let id = url.lastPathComponent
-            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
-        } else {
-            return "https://www.ifms.edu.br/imagens/icones-agenda/interrogacao.png/@@images/4201dd79-8751-48ca-945f-92d2c815f7ca.png"
         }
     }
 }

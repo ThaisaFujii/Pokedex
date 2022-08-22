@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PokedexCardView: View {
     @State var pokemon: Pokemon
-    let radius: CGFloat = 56.5
-    var squareSide: CGFloat { 2.0.squareRoot() * radius }
+    @EnvironmentObject var homeViewModel: HomeVM
     
     var body: some View {
         HStack {
@@ -26,14 +25,14 @@ struct PokedexCardView: View {
                             ZStack {
                                 Circle()
                                     .fill(Color("circleColor"))
-                                    .frame(width: radius * 2, height: radius * 2)
+                                    .frame(width: homeViewModel.radius * 2, height: homeViewModel.radius * 2)
                                 if pokemon.url != nil {
-                                AsyncImage( // arrumar quando carrega a imagem ou n acha
-                                    url: URL(string: getPokemonImage(stringURL: pokemon.url ?? "")),
+                                AsyncImage(
+                                    url: URL(string: homeViewModel.getPokemonImage(stringURL: pokemon.url ?? "")),
                                     content: { image in
                                         image.resizable()
                                             .aspectRatio(1.0, contentMode: .fit)
-                                            .frame(width: squareSide, height: squareSide)
+                                            .frame(width: homeViewModel.squareSide, height: homeViewModel.squareSide)
                                     },
                                     placeholder: {
                                         ProgressView()
@@ -50,12 +49,6 @@ struct PokedexCardView: View {
         .padding(22)
         .padding(.top, 10)
         .shadow(color: .black, radius: 0.2, x: 0, y: 2)
-    }
-    
-    func getPokemonImage(stringURL: String) -> String {
-        let url = URL(string: stringURL)
-        let id = url?.lastPathComponent
-        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id ?? "NA").png"
     }
 }
 
